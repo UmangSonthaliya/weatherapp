@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Weather Monitoring</h1>
+<div id="weatherData"></div>
+
+<script>
+    fetch('/weather')
+        .then(response => response.json())
+        .then(data => {
+            const weatherDiv = document.getElementById('weatherData');
+            data.forEach(weather => {
+                const weatherCard = document.createElement('div');
+                weatherCard.classList.add('weather-card');
+
+                const city = document.createElement('h2');
+                city.innerText = weather.city;
+
+                const temperature = document.createElement('p');
+                temperature.innerText = `Temperature: ${weather.temperature.toFixed(2)} °C`;
+
+                const condition = document.createElement('p');
+                condition.innerText = `Condition: ${weather.weatherCondition}`;
+
+                weatherCard.appendChild(city);
+                weatherCard.appendChild(temperature);
+                weatherCard.appendChild(condition);
+
+                weatherDiv.appendChild(weatherCard);
+            });
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+#weatherData {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.weather-card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 250px;
+    margin: 15px;
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.weather-card h2 {
+    margin-top: 0;
+    color: #34495e;
+}
+
+.weather-card p {
+    margin: 5px 0;
+    color: #7f8c8d;
+}
+
+.weather-card:hover {
+    transform: translateY(-5px);
+}
